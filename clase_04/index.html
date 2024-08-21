@@ -14,11 +14,45 @@
     </header>
 
     <main class="container mt-2">
-        <button onclick="darAsistencia();"  class="btn btn-success" type="button"> Dar Presente</button>
+
+        <button onclick="ingresar();" class="btn btn-dark" type="button">Ingresar</button>
+        <button onclick="mostrar();" class="btn btn-dark" type="button">Mostrar</button>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Estudiantes</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> José Ruiz</td>
+                    <td>
+                        <button class="btn btn-success" type="button">Presente</button>
+                        <button class="btn btn-danger" type="button">Ausente</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Carla Ruiz</td>
+                    <td>
+                        <button class="btn btn-success" type="button">Presente</button>
+                        <button class="btn btn-danger" type="button">Ausente</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Josefina Herrera</td>
+                    <td>
+                        <button class="btn btn-success" type="button">Presente</button>
+                        <button class="btn btn-danger" type="button">Ausente</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </main>
 
     <footer class="bg-dark text-white">
-        <p>DV | ProgramaciónI | 2024</p>
+        <p>DV | Programación I | 2024</p>
     </footer>
     <script src="funciones.js"></script>
 </body>
