@@ -20,4 +20,5 @@ const mostrarDias = () => {
     let siglas = prompt('Ingrese las siglas: dw, dm, dg');
     let texto = obtenerDias(siglas);
     console.info(texto);
+    document.querySelector('#mensaje').innerText =  texto;
 }
