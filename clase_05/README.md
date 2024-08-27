@@ -1,5 +1,5 @@
 # PROGRAMACIÓN I
-## Clase 04 - Funciones
+## Clase 05 - Funciones
 
 **🎯 Temas de la Clase**
 - Funciones
