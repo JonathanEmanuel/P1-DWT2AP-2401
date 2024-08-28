@@ -1,9 +1,8 @@
 # PROGRAMACIÓN I
-## Clase 05 - Funciones
+## Clase 06 - Arrays
 
 **🎯 Temas de la Clase**
-- Funciones
-- Scopes de las variables
-- Parametros
-- Valores de retorno
+- Definición de un array
+- Acceso a elementos
+- Recorrido de una array
 
