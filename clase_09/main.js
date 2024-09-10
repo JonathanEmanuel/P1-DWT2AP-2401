@@ -10,6 +10,7 @@ const agregar = () => {
     const tel = prompt('Ingrese el tel');
     // Versión corta
     //listaContactos.push( { nombre, tel } );
+
     const contacto = {
         nombre: nombre,
         tel: tel
@@ -30,3 +31,20 @@ const eliminar = () =>{
     listaContactos = [];
     mostrar();
 }
+
+const modificar = () =>{
+    const posicion = parseInt( prompt('ingrese la Posición'));
+    const nombre = prompt('Ingrese el nombre');
+    const tel = prompt('Ingrese el tel');
+
+    listaContactos[posicion].nombre = nombre;
+    listaContactos[posicion].tel = tel;
+    mostrar();
+
+}
+
+/* const lista = [
+    {nombre: 'Carlos', tel: '2123'},
+    {nombre: 'Valentina', tel: '223'}
+]
+lista[0].tel = '0000'; */
