@@ -20,3 +20,10 @@ persona.nombre = 'José';
 persona.saludar();
 const edad = persona.getEdad();
 console.log(`La edad es de ${edad}`);
+
+
+let n1 = 2;
+let n2 = 4;
+n2 =  n1;
+
+console.log(n2);
