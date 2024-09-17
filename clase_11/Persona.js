@@ -17,4 +17,7 @@ class Persona {
     setEdad(edad){
         this.edad = edad;
     }
+    getEdad(){
+        return this.edad;
+    }
 }
