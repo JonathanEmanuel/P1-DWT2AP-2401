@@ -25,7 +25,7 @@ const mostrarDatos = () => {
 }
 
 
-
+/*
 const a1 = new Alumno('Rocio');
 const a2 = new Alumno('Carlos');
 const a3 = new Alumno('José');
@@ -44,3 +44,4 @@ console.log(a1)
 
 const promedio = a1.calcularPomedio();
 console.log(`Alumno ${a1.nombre} con promedio ${promedio}`);
+*/
