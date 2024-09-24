@@ -46,6 +46,18 @@ const products = [
     {id:2, name: 'Mouse Gamer', price: 12000}
 
 ]
+
+const mostrar = () => {
+    const lista = document.querySelector('#lista');
+    lista.innerHTML = '';
+    // Recorro el array y los renderizo en el html
+    for (const item of products) {
+        lista.innerHTML += `<li class="list-group-item"> 
+                                ${ item.name} | ${item.price}
+                            </li>`;
+    }
+}
+mostrar();
 const ordenarPrecioBajo = () => {
     products.sort( function(a, b){
         if( a.price > b.price){
