@@ -19,19 +19,19 @@ La clase Inmobiliaria manejará una lista de inmuebles y tendrá los siguientes 
 
 ## Probar las clases
 
-- Crea al menos 5 inmuebles con diferentes tipos, precios y estados de disponibilidad  
-- Añade esos inmuebles a la inmobiliaria  
-- Busca todos los inmuebles del tipo "casa"  
-- Lista los inmuebles disponibles.  
-- Ordena los inmuebles por precio de manera ascendente y luego descendente
+- Crear al menos 5 inmuebles con diferentes tipos, precios y estados de disponibilidad  
+- Añadir esos inmuebles a la inmobiliaria  
+- Buscar todos los inmuebles del tipo "casa"  
+- Listar los inmuebles disponibles.  
+- Ordenar los inmuebles por precio de manera ascendente y luego descendente
 
 ## Ejemplo de uso
 
 ``` js
-const inmobiliaria \= new Inmobiliaria();
+const inmobiliaria = new Inmobiliaria();
 
-const inmueble1 \= new Inmueble('Calle Falsa 123', 'departamento', 120000);  
-const inmueble2 \= new Inmueble('Avenida Siempre Viva 742', 'casa', 90000);
+const inmueble1 = new Inmueble('Calle Falsa 123', 'departamento', 120000);  
+const inmueble2 = new Inmueble('Avenida Siempre Viva 742', 'casa', 90000);
 
 inmobiliaria.agregarInmueble(inmueble1);  
 inmobiliaria.agregarInmueble(inmueble2);
