@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/icon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="main.js" defer></script>
+
 </head>
 <body>
     <header class="bg-primary text-white">
@@ -17,18 +19,23 @@
     <main class="container mt-2">
 
         <div class="row mb-3 mt-2">
-            <div class="col"></div>
+            <div class="col">
+                <p class="text-danger">
+                    Texto 1
+                </p>
+                <p id="text-2"> Texto 2</p>
+            </div>
             <div class="col ">
-                <button class="btn btn-success" type="button">Cambiar</button>
+                <button id="btn-cambiar" class="btn btn-success" type="button">Cambiar</button>
             </div>
         </div>
         <div class="row">
             <div class="col"></div>
             <div class="col">
                 <img class="img-thumbnail p-3 shadow" src="images/codigo.png" alt="codigo">
+
             </div>
             <div class="col">
-                <img class="img-thumbnail p-3 shadow" src="images/js.png" alt="js">
 
             </div>
         </div>
@@ -39,6 +46,5 @@
     <footer class="bg-dark text-white">
         <p>DV | Programación I | 2024</p>
     </footer>
-    <script src="main.js"></script>
 </body>
 </html>
