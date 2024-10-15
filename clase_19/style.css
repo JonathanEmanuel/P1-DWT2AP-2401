@@ -6,6 +6,9 @@ header, footer {
 header {
     height: 20vh;
 }
+h1 {
+    text-decoration: underline;
+}
 main {
     min-height: 70vh;
 }
