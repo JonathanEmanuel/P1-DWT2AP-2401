@@ -46,5 +46,5 @@ btnCambiar.addEventListener('click', () =>{
 chkModo.addEventListener('change', () => {
     const valor = chkModo.checked;
     console.log('cambio de modo', valor);
-
+    document.querySelector('body').classList.toggle('dark');
 })
