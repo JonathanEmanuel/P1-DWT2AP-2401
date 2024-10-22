@@ -86,7 +86,7 @@ const renderizarTareas = ( tasks ) => {
 <li class="list-group-item d-flex justify-content-between">
     <div class="d-flex flex-column">
         <span><i class="fa-solid fa-calendar"></i> 16-10-24</span>
-        <span>Tarea 1 das dasdasdsadsadsa</span>
+        <span>Tarea 1 </span>
     </div>
     <span>
         <button type="button" class="btn btn-success"><i class="fa-solid fa-square-check"></i></button>
