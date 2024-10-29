@@ -81,10 +81,31 @@ const completarTarea = ( i) => {
 const renderizarTareas = ( tareas ) =>{
     // limpiamos el contenedor 
     listaTareas.innerHTML = '';
-    tareas.forEach(element => {
+    tareas.forEach(tarea => {
 
-        const alerta = document.createElement('div');
-       
+        // Creamos los elementos HTML
+        const li = document.createElement('li');
+        li.classList.add('list-group-item');
+        const i = document.createElement('i');
+        i.classList.add('fa-solid');
+        i.classList.add('fa-trash');
+        i.classList.add('text-danger');
+
+        const icompletar = document.createElement('i');
+        icompletar.classList.add('fa-solid');
+        icompletar.classList.add('fa-square-check');
+
+        const strong = document.createElement('strong');
+        strong.innerText = tarea;
+        // Conectamos lo nodos
+        li.appendChild(i);
+        li.appendChild(strong);
+        li.appendChild(icompletar);
+        listaTareas.appendChild(li);
+
+        // Agregamos un escuchador del evento Click
+        i.addEventListener('click', eliminarTarea);
+        icompletar.addEventListener('click', completarTarea);
     });
 }
 
@@ -115,4 +136,4 @@ tareasString = localStorage.getItem('tareas');
 tareas = JSON.parse( tareasString);
 console.log(tareas);
 // Llamamos a la función renderizarTareas
-//renderizarTareas(tareas);
+renderizarTareas(tareas);
