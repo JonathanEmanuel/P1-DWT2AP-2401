@@ -1,7 +1,6 @@
 // Selecciono los elementos del HTML
 const form = document.querySelector('form');
 const txtTarea = document.querySelector('#txtTarea');
-const btnCambiar = document.querySelector('#btnCambiar');
 const alert1 = document.querySelector('#alert1');
 const chkModo = document.querySelector('#chkModo');
 const body = document.querySelector('body');
@@ -29,17 +28,53 @@ form.addEventListener('submit', (evento) => {
         form.appendChild(alerta);
     } 
     tareas.push( tarea );
+    // Creamos los elementos HTML
+    const li = document.createElement('li');
+    li.classList.add('list-group-item');
+    const i = document.createElement('i');
+    i.classList.add('fa-solid');
+    i.classList.add('fa-trash');
+    i.classList.add('text-danger');
+
+    const icompletar = document.createElement('i');
+    icompletar.classList.add('fa-solid');
+    icompletar.classList.add('fa-square-check');
+
+    const strong = document.createElement('strong');
+    strong.innerText = tarea;
+    // Conectamos lo nodos
+    li.appendChild(i);
+    li.appendChild(strong);
+    li.appendChild(icompletar);
+    listaTareas.appendChild(li);
+
+    // Agregamos un escuchador del evento Click
+    i.addEventListener('click', eliminarTarea);
+    icompletar.addEventListener('click', completarTarea);
+
     // Convertimos el array a un String para ser guardado en el localStorage
     const tareasString =  JSON.stringify( tareas);
     localStorage.setItem('tareas', tareasString );
-    renderizarTareas(tareas);
-    console.log(tarea); 
+    // Borramos el contenido del input
+    txtTarea.value = '';
 })
 // Función 02 - Escucha el el evento focus y elimina la alerta de error
 txtTarea.addEventListener('focus', () => {
     const alerta = document.querySelector('.error')
-    alerta.remove();
+    //alerta.remove();
 })
+
+const eliminarTarea = ( i ) => {
+    // con target obtengo el elemento y con parentNode obtenemos el elemento padre
+    const element = i.target.parentNode;
+    element.remove();
+}
+
+const completarTarea = ( i) => {
+    const element = i.target.parentNode;
+    element.classList.add('bg-success');
+}
+
 
 // Funcion 03 - RenderizarTareas
 // Recorre el array de tareas y crea cada div de la tarea
@@ -49,22 +84,9 @@ const renderizarTareas = ( tareas ) =>{
     tareas.forEach(element => {
 
         const alerta = document.createElement('div');
-        alerta.classList.add('alert');
-        alerta.classList.add('alert-primary');
-        alerta.classList.add( 'mt-2');
-
-        alerta.innerText = element;
-        console.log(alerta);
-        listaTareas.appendChild( alerta);
+       
     });
 }
-
-btnCambiar.addEventListener('click', () =>{
-    // Eliminamos una clase
-    alert1.classList.remove('alert-primary');
-    // Agregamos una clase
-    alert1.classList.add('alert-success');
-})
 
 chkModo.addEventListener('change', () => {
     console.log('Se cambio el modo');
@@ -93,4 +115,4 @@ tareasString = localStorage.getItem('tareas');
 tareas = JSON.parse( tareasString);
 console.log(tareas);
 // Llamamos a la función renderizarTareas
-renderizarTareas(tareas);
+//renderizarTareas(tareas);
