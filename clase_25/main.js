@@ -190,16 +190,17 @@ txtBuscar.addEventListener('input', () => {
 
 /* ------------------------ FUNCIÓN 10 - Ordenar por Nombre  -------------------- */
 btnOrdenar.addEventListener('click', () => {
-    console.log('Ordenando por nombre');
-    const contatosOrdenados = contactos.sort( (a, b) => {
-        if( a.nombre > b.nombre){
-            return -1;  // Ordeno descendentemente
+    const contactosOrdenados = contactos.sort( (a, b) => {
+        if( a.nombre.toLowerCase() < b.nombre.toLowerCase()){
+            return -1;  // Ordenamos descendentemente
         }
-        if( b.nombre < a.nombre ){
+        if( b.nombre.toLowerCase() > a.nombre.toLowerCase() ){
             return 1;
         }
         return 0;
-    }  )
+    });
+
+    renderizarLista(contactosOrdenados)
 })
 
 contactos = leerLocal();
