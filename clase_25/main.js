@@ -2,6 +2,7 @@
 const ulContactos = document.querySelector('#ulContactos');
 const btnAbrirModal = document.querySelector('#btnAbrirModal');
 const btnCerrarModal = document.querySelector('#btnCerrarModal');
+const btnOrdenar = document.querySelector('#btnOrdernar');
 const txtBuscar = document.querySelector('#txtBuscar');
 const selBuscarCategoria = document.querySelector('#selBuscarCategoria');
 const txtNombre = document.querySelector('#txtNombre');
@@ -9,12 +10,13 @@ const txtTel = document.querySelector('#txtTel');
 const selCategoria = document.querySelector('#selCategoria');
 const btnGuardar = document.querySelector('#btnGuardar');
 const modal = document.querySelector('#modalContacto');
+const spanCantidad = document.querySelector('#cantidad');
 
 const modalContacto = new bootstrap.Modal( modal, {});
-
+// Variables Globales
 let idActual = '';
 let contactos = [];
-
+let count = 0;
 
 /* ----------------------- FUNCIÓN 00 - Cierra el modal y Limpia los controles ----------------------- */
 btnCerrarModal.addEventListener('click', ()=>{
@@ -29,6 +31,11 @@ btnCerrarModal.addEventListener('click', ()=>{
 /* ----------------------- FUNCIÓN 01 - Abre el modal ----------------------- */
 btnAbrirModal.addEventListener('click', () => {
     console.log('modal')
+    // Limpiar la información del formulario
+    txtNombre.value = '';
+    txtTel.value = '';
+    selCategoria.value = 'personal';
+    idActual = '';
     modalContacto.show();
 })
 
@@ -88,6 +95,8 @@ const leerLocal = () => {
 /* ------------------------- FUNCIÓN 05 - Renderizar Contactos ------------------------ */
 const renderizarLista = (contactos) => {
     ulContactos.innerHTML = '';
+    // Actualizo el contador de contactos
+    spanCantidad.innerText = contactos.length;
     console.table(contactos);
     contactos.forEach(contacto => {
         const li = document.createElement('li');
@@ -128,14 +137,20 @@ const eliminarContacto = (elemento) => {
     const li = elemento.target.parentNode.parentNode;
     const id = li.getAttribute('data-id');
 
-    // Elimino el contacto del array
-    const index = contactos.findIndex(  contacto => contacto.id == id );
-    contactos.splice(index, 1);
-    // Elimino el elemento del HTML
-    li.remove();
+    if( confirm('¿Confirma eliminar el contacto?')  ){
+        // Elimino el contacto del array
+        const index = contactos.findIndex(  contacto => contacto.id == id );
+        contactos.splice(index, 1);
+        // Elimino el elemento del HTML
+        li.remove();
 
-    // Guardo el array actualizado
-    guardarLocal(contactos);
+        spanCantidad.innerText = contactos.length;
+
+        // Guardo el array actualizado
+        guardarLocal(contactos);
+    }
+
+   
 }
 
 /* ---------------------- FUNCIÓN 07 - Editar contacto ---------------------- */
@@ -153,7 +168,39 @@ const editarContacto = (elemento) => {
 
 }
 
+/* ---------------------- FUNCIÓN 08 - Filtro por categoría ------------------- */
+selBuscarCategoria.addEventListener('change', () => {
+    const categoria = selBuscarCategoria.value; 
+    if( categoria != ''){
+        const contactosFiltrados = contactos.filter(   item => item.categoria == categoria  );
+        //console.table(contactosFiltrados);
+        renderizarLista(contactosFiltrados);
+    } else {
+        renderizarLista(contactos);
+    }
+})
 
+/* -------------------- FUNCIÓN 09 - Filtro por palabra ---------------------- */
+txtBuscar.addEventListener('input', () => {
+    const filtro = txtBuscar.value.toLowerCase();
+    //console.log(filtro);
+    const contactosFiltrados = contactos.filter( item => item.nombre.toLowerCase().includes( filtro  )  );
+    renderizarLista(contactosFiltrados);
+})
+
+/* ------------------------ FUNCIÓN 10 - Ordenar por Nombre  -------------------- */
+btnOrdenar.addEventListener('click', () => {
+    console.log('Ordenando por nombre');
+    const contatosOrdenados = contactos.sort( (a, b) => {
+        if( a.nombre > b.nombre){
+            return -1;  // Ordeno descendentemente
+        }
+        if( b.nombre < a.nombre ){
+            return 1;
+        }
+        return 0;
+    }  )
+})
 
 contactos = leerLocal();
 renderizarLista(contactos)
