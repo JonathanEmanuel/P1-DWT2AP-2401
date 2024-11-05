@@ -1,0 +1,32 @@
+header {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    height: 70vh;
+
+}
+
+
+footer {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
